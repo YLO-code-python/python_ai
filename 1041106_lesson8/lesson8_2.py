@@ -1,17 +1,16 @@
-import os
+import os # os指的是內建的module或package
 import random
 import csv
 
 
-def get_names(file_name):
-    # 使用names.txt的絕對路徑
+def get_names(file_name): # 自訂get_names函式，參數file_name是檔案名稱
     current_dir = os.path.dirname(os.path.abspath("__file__"))
-    file_path = os.path.join(current_dir,'assets',file_name)
-
+    file_path = os.path.join(current_dir,'assets',file_name) 
+    
     with open(file_path, encoding="utf-8") as file:
         content = file.read()
 
-    return content.split('\n')
+    return content.split('\n') #return回傳以換行符號分隔的列表
 
 def get_scores(names, num=10):
     stu_names = random.sample(names,num)
